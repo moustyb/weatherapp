@@ -1,21 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Weather App</title>
-        <link rel="stylesheet" href="style.css" />
-        <script src="script.js" defer></script>
-    </head>
-    <body>
-        <form id="form">
-            <input
-                type="text"
-                id="search"
-                placeholder="Search by location"
-                autocomplete="off"
-            />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather APP</title>
+
+  <!-- Icons (Font Awesome) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="dashboard">
+
+    <!-- Top bar -->
+    <header class="header card">
+      <div class="header-left">
+        <h1 class="greeting">Good morning, Explorer!</h1>
+        <p class="datetime">—</p>
+      </div>
+      <div class="header-right">
+        <form id="search-form" class="search">
+          <input id="search-input" type="text" placeholder="Search city (e.g., Chicago)" aria-label="Search city"/>
+          <button type="submit" class="btn"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
-        <main id="main"></main>
-    </body>
+        <button id="use-location" class="btn secondary">
+          <i class="fa-solid fa-location-crosshairs"></i> Use my location
+        </button>
+      </div>
+    </header>
+
+    <!-- Current weather -->
+    <section class="current-weather card">
+      <div class="cw-top">
+        <div>
+          <h2 class="city">—</h2>
+          <p class="date">—</p>
+        </div>
+        <div class="temp-wrap">
+          <span class="temp">—</span>
+          <span class="unit">°C</span>
+        </div>
+      </div>
+      <div class="cw-bottom">
+        <div class="condition">
+          <img class="icon" alt="Weather icon" />
+          <span class="desc">—</span>
+        </div>
+        <div class="metrics">
+          <div class="metric">
+            <i class="fa-solid fa-wind"></i>
+            <span class="label">Wind</span>
+            <span class="value wind">— km/h</span>
+          </div>
+          <div class="metric">
+            <i class="fa-solid fa-droplet"></i>
+            <span class="label">Humidity</span>
+            <span class="value humidity">—%</span>
+          </div>
+          <div class="metric">
+            <i class="fa-solid fa-gauge-high"></i>
+            <span class="label">Pressure</span>
+            <span class="value pressure">— hPa</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Weekly forecast -->
+    <section class="forecast card">
+      <h3>Weekly forecast</h3>
+      <ul class="forecast-list" id="forecast-list"></ul>
+    </section>
+
+    <!-- Air quality -->
+    <section class="air-quality card">
+      <h3>Air quality index</h3>
+      <div class="aqi-row">
+        <div class="aqi-badge" id="aqi-badge">—</div>
+        <div class="aqi-info">
+          <p class="aqi-status">—</p>
+          <p class="aqi-tip">—</p>
+        </div>
+      </div>
+      <p class="aqi-location">Location: <span id="aqi-location">—</span></p>
+    </section>
+
+    <!-- Sunrise & sunset (updated, icons removed) -->
+    <section class="sunrise-sunset card">
+      <h3>Sunrise & sunset</h3>
+      <div class="ss-list" id="ss-list"></div>
+    </section>
+
+    <!-- Monthly rainfall chart -->
+    <section class="rainfall card">
+      <h3>Monthly rainfall</h3>
+      <canvas id="rainChart" height="140"></canvas>
+    </section>
+
+    <!-- Comparison -->
+    <section class="comparison card">
+      <h3>Weather comparison</h3>
+      <div class="comparison-grid" id="comparison-grid"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Powered by OpenWeather • Designed for clarity, celebration, and impact</p>
+    </footer>
+
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast"></div>
+
+  <script src="script.js"></script>
+</body>
 </html>
