@@ -17,54 +17,64 @@
 
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <div class="dashboard">
 
-    <!-- Top bar -->
+    <!-- Header -->
     <header class="header card">
       <div class="header-left">
         <h1 class="greeting">Good morning, Explorer!</h1>
         <p class="datetime">—</p>
       </div>
+
       <div class="header-right">
         <form id="search-form" class="search">
           <input id="search-input" type="text" placeholder="Search city (e.g., Chicago)" aria-label="Search city"/>
-          <button type="submit" class="btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+          <button type="submit" class="btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
         </form>
+
         <button id="use-location" class="btn secondary">
           <i class="fa-solid fa-location-crosshairs"></i> Use my location
         </button>
       </div>
     </header>
 
-    <!-- Current weather -->
+    <!-- Current Weather -->
     <section class="current-weather card">
       <div class="cw-top">
         <div>
           <h2 class="city">—</h2>
           <p class="date">—</p>
         </div>
+
         <div class="temp-wrap">
           <span class="temp">—</span>
           <span class="unit">°C</span>
         </div>
       </div>
+
       <div class="cw-bottom">
         <div class="condition">
           <img class="icon" alt="Weather icon" />
           <span class="desc">—</span>
         </div>
+
         <div class="metrics">
           <div class="metric">
             <i class="fa-solid fa-wind"></i>
             <span class="label">Wind</span>
             <span class="value wind">— km/h</span>
           </div>
+
           <div class="metric">
             <i class="fa-solid fa-droplet"></i>
             <span class="label">Humidity</span>
             <span class="value humidity">—%</span>
           </div>
+
           <div class="metric">
             <i class="fa-solid fa-gauge-high"></i>
             <span class="label">Pressure</span>
@@ -74,15 +84,16 @@
       </div>
     </section>
 
-    <!-- Weekly forecast -->
+    <!-- Weekly Forecast -->
     <section class="forecast card">
       <h3>Weekly forecast</h3>
       <ul class="forecast-list" id="forecast-list"></ul>
     </section>
 
-    <!-- Air quality -->
+    <!-- Air Quality -->
     <section class="air-quality card">
       <h3>Air quality index</h3>
+
       <div class="aqi-row">
         <div class="aqi-badge" id="aqi-badge">—</div>
         <div class="aqi-info">
@@ -90,16 +101,17 @@
           <p class="aqi-tip">—</p>
         </div>
       </div>
+
       <p class="aqi-location">Location: <span id="aqi-location">—</span></p>
     </section>
 
-    <!-- Sunrise & sunset (updated, icons removed) -->
+    <!-- Sunrise & Sunset -->
     <section class="sunrise-sunset card">
       <h3>Sunrise & sunset</h3>
       <div class="ss-list" id="ss-list"></div>
     </section>
 
-    <!-- Monthly rainfall chart -->
+    <!-- Monthly Rainfall -->
     <section class="rainfall card">
       <h3>Monthly rainfall</h3>
       <canvas id="rainChart" height="140"></canvas>
@@ -118,7 +130,7 @@
 
   </div>
 
-  <!-- Toast Notification -->
+  <!-- Toast -->
   <div id="toast" class="toast"></div>
 
   <script src="script.js"></script>
