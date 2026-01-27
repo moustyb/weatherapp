@@ -1,7 +1,7 @@
 # Weather Dashboard
 
 A simple, fast weather dashboard that shows real‑time weather, weekly forecast, air quality, sunrise/sunset, rainfall, and a comparison of multiple cities.  
-I built the weather app using the programming languages HTML, CSS, and JavaScript on the frontend, with a single weather.js serverless function running on Vercel as the backend. I kept it simple the web app.
+I built the weather app using the programming languages HTML, CSS, and JavaScript on the frontend, with a single weather.js serverless function running on Vercel as the backend. I’m using a free public API key from openweathermap.org , which provides the weather, forecast, AQI, and geocoding data for this project. I kept it simple the web app.
  
 
 ---
